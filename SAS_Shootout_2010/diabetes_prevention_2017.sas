@@ -2,11 +2,12 @@
    Disease Prevention: A Data Mining Approach
    Created date: 12/20/2016
    Team Lead: Yun Zhou
+   Team Member: Eugene Wen
  */
 
 * Define LIBNAME for saving permanent datasets in Excel;
-LIBNAME dp "C:\Users\WenYun\Desktop\filepath";
-%INCLUDE "C:\Users\WenYun\Desktop\filepath\impute_macro.sas";
+LIBNAME dp "C:\Users\ANNA\Desktop\filepath";
+%INCLUDE "C:\Users\ANNA\Desktop\filepath\impute_macro.sas";
 TITLE;
 
 * Clean up all dataset in WORK library;
