@@ -3,5 +3,9 @@
 /data
 *.sqlite
 *.xlsx
+*.xls
 *.jmp
+*.sas7bdat
+*.ppt
+*.pptx
 /LendingCLubLoan
