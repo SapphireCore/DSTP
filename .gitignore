@@ -1,0 +1,7 @@
+*.csv
+*.json
+/data
+*.sqlite
+*.xlsx
+*.jmp
+/LendingCLubLoan
