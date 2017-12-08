@@ -1,4 +1,6 @@
-/* MACRO: Missing Value Imputation
+/* MACRO: Missing Value Imputation 
+   Version: 1.0.1
+   Developers: Yun Zhou, Eugene Wen
  */
 
 
