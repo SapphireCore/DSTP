@@ -1,15 +1,15 @@
+
 # coding: utf-8
 
 # # Capstone Project 1
 # # Lending Club Loan Status Analysis
-# ## Part 1: Data Wrangling
-# 
-# Data Source: Kaggle Dataset -- Lending Club Loan Data  
-# URL: https://www.kaggle.com/wendykan/lending-club-loan-data  
-# Analyst: Eugene Wen
+# ## Part 2: Data Storytelling with Engineered Features
+# A few new features generated in data storytelling part.
+# These are documented as MakingTarget.py.
+
+# Part I
 
 # Load in Dataset
-
 import pandas as pd
 loan = pd.read_csv("../LendingClubLoan/loan.csv", low_memory=False)
 pd.set_option('display.max_columns', 100)
@@ -36,3 +36,25 @@ loan['last_credit_pull_d'] = pd.to_datetime(loan['last_credit_pull_d'])
 loan['term'] = loan['term'].str.split(' ').str[1]
 loan['int_rate'] = loan['int_rate'] / 100.0
 
+# Added the new Target variable created in Part II.
+
+# Recode the status to form a simpler status variable named loan_status_simple
+# Good (0): Current, Fully Paid
+# Bad (1):  Default, Late (all types), In Grace Period, Charge Off
+# Issued: leave blank for scoring
+
+loan_dict = {
+    "Does not meet the credit policy. Status:Charged Off": "Bad",
+    "Default": "Bad",
+    "Does not meet the credit policy. Status:Fully Paid": "Good",
+    "Late (16-30 days)": "Bad",
+    "In Grace Period": "Bad",
+    "Issued": "Issued",
+    "Late (31-120 days)":"Bad",
+    "Charged Off":"Bad",
+    "Fully Paid": "Good",
+    "Current": "Good"
+}
+loan["loan_status_simple"] = loan["loan_status"].map(loan_dict)
+
+loan.drop(["loan_status"], axis = 1, inplace = True)
